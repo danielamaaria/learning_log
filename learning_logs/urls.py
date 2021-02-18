@@ -1,5 +1,5 @@
 """Defines URL patterns for learning_logs."""
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 app_name = 'learning_logs'
@@ -18,5 +18,4 @@ urlpatterns = [
     # captures a numerical value and assigns it to the variable topic_id.
     # Page for editing an entry.
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
-
 ]
