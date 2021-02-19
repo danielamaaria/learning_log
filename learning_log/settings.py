@@ -126,6 +126,11 @@ LOGIN_URL = 'users:login'
 STATIC_URL = '/static/'
 
 # Heroku settings.
-import django_heroku
+import django_heroku, os
 
 django_heroku.settings(locals())
+
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
