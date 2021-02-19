@@ -13,5 +13,10 @@ u {% block page_header %}
             <li><h3>No topics have been added yet.</h3></li>
         {% endfor %}
     </ul>
-     <h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a></h3>
+    <h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a></h3>
 {% endblock content %}
+
+{#We move the heading Topics#}
+{#into the page_header block and give it a header styling instead of using the#}
+{#simple paragraph tag. We style each topic as an <h3> element to make#}
+{# them a little larger on the page and do the same for the link to add a new topic .#}
