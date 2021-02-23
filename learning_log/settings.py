@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import django_heroku, os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$k!+u1&q0_-*^_(srzftfav=g3mql1-0(*t^3vujrl=mwtg*ff'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,7 +126,7 @@ LOGIN_URL = 'users:login'
 STATIC_URL = '/static/'
 
 # Heroku settings.
-import django_heroku, os
+
 
 django_heroku.settings(locals())
 if os.environ.get('DEBUG') == 'TRUE':
